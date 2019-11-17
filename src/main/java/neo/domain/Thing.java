@@ -1,5 +1,6 @@
 package neo.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,7 +21,8 @@ public class Thing {
 
     private String name;
 
-    @Relationship(type = "SOME_RELATIONSHIP", direction= Relationship.INCOMING)
+    @JsonManagedReference
+    @Relationship(type = "SOME_RELATIONSHIP")
     private Set<MyRelationship> myRelationships;
 
     public Thing(String name) {

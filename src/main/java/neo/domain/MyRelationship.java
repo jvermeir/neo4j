@@ -4,20 +4,17 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.neo4j.ogm.annotation.EndNode;
-import org.neo4j.ogm.annotation.Property;
-import org.neo4j.ogm.annotation.RelationshipEntity;
-import org.neo4j.ogm.annotation.StartNode;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.neo4j.ogm.annotation.*;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @RelationshipEntity(type="SOME_RELATIONSHIP")
-public  class MyRelationship {
+public class MyRelationship {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(MyRelationship.class);
+    @Id
+    @GeneratedValue
+    private Long id;
 
     @JsonBackReference
     @StartNode

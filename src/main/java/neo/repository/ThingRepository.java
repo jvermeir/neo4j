@@ -10,8 +10,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ThingRepository extends Neo4jRepository<Thing, Long> {
 
-//    @Query("MATCH (thing:Thing) WHERE thing.name={name} RETURN thing")
-    @Query("MATCH (thing:Thing)-[c:SOME_RELATIONSHIP]-(otherThing:OtherThing) WHERE thing.name={name} RETURN thing, c, otherThing")
+    @Query("MATCH (thing:Thing)-[r:SOME_RELATIONSHIP]-(otherThing:OtherThing) WHERE thing.name={name} RETURN thing, otherThing, r")
     Thing findByName(@Param("name") String name);
 
+    @Query("MATCH (n) DETACH DELETE n")
+    void deleteAll();
 }
