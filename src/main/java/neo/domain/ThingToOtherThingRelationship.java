@@ -10,7 +10,7 @@ import org.neo4j.ogm.annotation.*;
 @Setter
 @NoArgsConstructor
 @RelationshipEntity(type="SOME_RELATIONSHIP")
-public class MyRelationship {
+public class ThingToOtherThingRelationship {
 
     @Id
     @GeneratedValue

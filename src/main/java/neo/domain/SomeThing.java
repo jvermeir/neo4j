@@ -21,7 +21,7 @@ public class SomeThing {
     private String name;
 
     @Relationship(type = "SOME_RELATIONSHIP")
-    private Set<OtherThing> myOtherThings;
+    private Set<SomeThingElse> someThingElses;
 
     public SomeThing(String name) {
         this.name = name;

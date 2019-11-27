@@ -23,7 +23,7 @@ public class Thing {
 
     @JsonManagedReference
     @Relationship(type = "SOME_RELATIONSHIP")
-    private Set<MyRelationship> myRelationships;
+    private Set<ThingToOtherThingRelationship> thingToOtherThingRelationships;
 
     public Thing(String name) {
         this.name = name;

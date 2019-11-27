@@ -1,6 +1,6 @@
 package neo.controller;
 
-import neo.domain.MyRelationship;
+import neo.domain.ThingToOtherThingRelationship;
 import neo.domain.OtherThing;
 import neo.domain.Thing;
 import neo.repository.OtherThingRepository;
@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Arrays;
 import java.util.Set;
 
 @RestController
@@ -25,11 +24,11 @@ public class MyController {
     public Thing get() {
         Thing thing = new Thing("thing1");
         OtherThing otherThing = new OtherThing("otherthing1");
-        MyRelationship myRelationship = new MyRelationship();
-        myRelationship.setThing(thing);
-        myRelationship.setOtherThing(otherThing);
-        myRelationship.setName("myRelationshipName");
-        thing.setMyRelationships(Set.of(myRelationship));
+        ThingToOtherThingRelationship thingToOtherThingRelationship = new ThingToOtherThingRelationship();
+        thingToOtherThingRelationship.setThing(thing);
+        thingToOtherThingRelationship.setOtherThing(otherThing);
+        thingToOtherThingRelationship.setName("myRelationshipName");
+        thing.setThingToOtherThingRelationships(Set.of(thingToOtherThingRelationship));
 
         otherThingRepository.save(otherThing);
         thingRepository.save(thing);

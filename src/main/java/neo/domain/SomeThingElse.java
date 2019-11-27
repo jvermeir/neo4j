@@ -12,16 +12,13 @@ import java.util.Set;
 
 @Getter
 @Setter
-@NodeEntity
 @NoArgsConstructor
+@NodeEntity
 public class SomeThingElse {
     @Id @GeneratedValue
     private Long id;
 
     private String name;
-
-    @Relationship(type = "SOME_RELATIONSHIP")
-    private Set<OtherThing> myOtherThings;
 
     public SomeThingElse(String name) {
         this.name = name;
